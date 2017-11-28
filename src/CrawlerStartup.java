@@ -10,15 +10,12 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.Console;
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 
 public class CrawlerStartup {
 
@@ -46,16 +43,12 @@ public class CrawlerStartup {
             for (XMLFormat x : db) {
                 grabManager = new GrabManager(x.getDepth(), x.getThreads(), x.getDomain(), connection, c);
                 grabManager.go(new URL(x.getBase()));
-
-
             }
 
         } catch (Exception e) {
             System.out.println(Arrays.toString(e.getStackTrace()));
             System.out.println(e.getMessage());
         }
-
-
     }
 
     private static ArrayList<XMLFormat> parse(String fileName)

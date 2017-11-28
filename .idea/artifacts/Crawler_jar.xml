@@ -3,10 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/Crawler_jar</output-path>
     <root id="archive" name="Crawler.jar">
       <element id="module-output" name="Crawler" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../mysql-connector-java-5.1.44/mysql-connector-java-5.1.44/mysql-connector-java-5.1.44-bin.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../jars/jsoup-1.11.1.jar" path-in-jar="/" />
-      <element id="dir-copy" path="$PROJECT_DIR$/.." />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../commons-lang3-3.7-bin/commons-lang3-3.7/commons-lang3-3.7.jar" path-in-jar="/" />
+      <element id="dir-copy" path="$USER_HOME$" />
     </root>
   </artifact>
 </component>
