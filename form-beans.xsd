@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns="http://www.wildcattos.org/schema/util"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.wildcattos.org/schema/util"
+            elementFormDefault="qualified"
+            version="1.0">
+
+    <!--    Root element-->
+    <xsd:element name="form">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="form_elements_Type">
+                    <xsd:attribute name="id" type="xsd:string"/>
+                    <xsd:attribute name="name" type="xsd:string"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!--    definitions-->
+    <xsd:complexType name="form_elements_Type">
+        <xsd:choice minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="text" type="FormText" maxOccurs="unbounded" minOccurs="0"/>
+            <xsd:element name="textarea" type="FormTextarea" maxOccurs="unbounded" minOccurs="0"/>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="FormText" mixed="true">
+        <xsd:complexContent>
+            <xsd:extension base="FormVisibleField">
+                <xsd:attribute name="placeholder" type="xsd:string"/>
+                <xsd:attribute name="value" type="xsd:string"/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="FormVisibleField">
+        <xsd:complexContent>
+            <xsd:extension base="FormField">
+                <xsd:attribute name="label" type="xsd:string"/>
+                <xsd:attribute name="required" type="xsd:boolean" default="false"/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="FormField">
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="FormTextarea" mixed="true">
+        <xsd:complexContent>
+            <xsd:extension base="FormVisibleField">
+                <xsd:attribute name="value" type="xsd:string"/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+</xsd:schema>
